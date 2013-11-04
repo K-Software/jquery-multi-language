@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jQuery/jquery-1.10.2.js"></script>
+        <script src="jQuery-cookie-master/jquery.cookie.js"></script>
+        <script src="jQuery-multi-language/jquery.multi.language.js"></script>
+        <script type="text/javascript" language="javascript">
+        $.setPathLanguage('languages.xml');
+        $.setNameCookie('LANG');
+        $.setExpireCookie(10); 
+        $(function() {
+            $("body").ready($.loadLanguage);   
+        });
+        $(function() {
+            $("a").click($.changeLanguage);
+        });
+        </script>
+    </head>
+    
+    <body>
+       <div class="title">Hello there, how are you?</div>
+       <div class="desc">The Divine Comedy (Italian: Divina Commedia) is an epic poem written by Dante Alighieri between c. 1308 and his death in 1321. It is widely considered the preeminent work of Italian literature,[1] and is seen as one of the greatest works of world literature.[2] The poem's imaginative and allegorical vision of the afterlife is a culmination of the medieval world-view as it had developed in the Western Church. It helped establish the Tuscan dialect, in which it is written, as the standardized Italian language.[3] It is divided into three parts: Inferno, Purgatorio, and Paradiso.</div>
+       <a href="#" lang="ITA">Traduci</a> - <a href="#" lang="ENG">Translate</a>
+    </body>
+</html>
