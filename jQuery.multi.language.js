@@ -14,14 +14,42 @@
         factory(jQuery);
     }
 }(function($) {
-   
+    
+    // Path and name of xml file
+    var language_path = 'languages.xml';
+    
+    // Name of attribute 
+    var attribute_name = 'lang';
+    
+    // Name of cookie
+    var cookie_name = 'site-language'; 
+    
+    // Number of days before cookie expires
+    var cookie_expire = 7
+    
+    $.setPathLanguage = function setPathLanguage(path) {
+        language_path = path;
+    }
+    
+    $.setNameAttribute = function setNameAttribute(name) {
+        attribute_name = name;
+    }
+    
+    $.setNameCookie = function setNameCookie(name) {
+        cookie_name = name;
+    }
+    
+    $.setExpireCookie = function setExpireCookie(numDays) {
+        cookie_expire = numDays
+    }
+    
     $.loadLanguage = function loadLanguage() {
-        var language = $.cookie('site-language');
-        if (language.length == 0) {
+        var language = $.cookie(cookie_name);
+        if (language.length === 0) {
             language = 'ENG';
         }
         $.ajax({
-            url: 'languages.xml',
+            url: language_path,
             success: function(xml) {
                 $(xml).find('translation').each(function(){
                     var id = $(this).attr('id');
@@ -33,10 +61,10 @@
     }
     
     $.changeLanguage = function changeLanguage() {
-        var language = $(this).attr('lang');
-        $.cookie('site-language', language, { expires: 7, path: '/' });
+        var language = $(this).attr(attribute_name);
+        $.cookie(cookie_name, language, { expires: cookie_expire, path: '/' });
         $.ajax({
-            url: 'languages.xml',
+            url: language_path,
             success: function(xml) {
                 $(xml).find('translation').each(function(){
                     var id = $(this).attr('id');
