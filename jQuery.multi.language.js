@@ -27,19 +27,19 @@
     // Number of days before cookie expires
     var cookie_expire = 7
     
-    $.setPathLanguage = function setPathLanguage(path) {
+    $.setLanguagePath = function setLanguagePath(path) {
         language_path = path;
     }
     
-    $.setNameAttribute = function setNameAttribute(name) {
+    $.setAttributeName = function setAttributeName(name) {
         attribute_name = name;
     }
     
-    $.setNameCookie = function setNameCookie(name) {
+    $.setCookieName = function setCookieName(name) {
         cookie_name = name;
     }
     
-    $.setExpireCookie = function setExpireCookie(numDays) {
+    $.setCookieExpire = function setCookieExpire(numDays) {
         cookie_expire = numDays
     }
     
