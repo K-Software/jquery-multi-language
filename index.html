@@ -5,9 +5,10 @@
         <script src="jQuery-cookie-master/jquery.cookie.js"></script>
         <script src="jQuery-multi-language/jquery.multi.language.js"></script>
         <script type="text/javascript" language="javascript">
-        $.setPathLanguage('languages.xml');
-        $.setNameCookie('LANG');
-        $.setExpireCookie(10); 
+        $.setLanguagePath('languages.xml');
+        $.setCookieName('LANG');
+        $.setCookieExpire(10);
+        $.setAttributeName('lang');
         $(function() {
             $("body").ready($.loadLanguage);   
         });
